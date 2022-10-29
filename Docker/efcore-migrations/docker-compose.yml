@@ -7,3 +7,21 @@ services:
       POSTGRES_PASSWORD: "postgres@123"
     ports:
       - "15432:5432"
+    networks:
+      - efcore-migrations-network
+      
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "postgres@pgadmin.com.br"
+      PGADMIN_DEFAULT_PASSWORD: "pgadmin@123"
+    ports:
+      - "16543:80"
+    depends_on:
+      - postgres
+    networks:
+      - efcore-migrations-network
+
+networks: 
+  efcore-migrations-network:
+    driver: bridge
