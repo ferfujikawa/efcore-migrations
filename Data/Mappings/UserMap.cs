@@ -8,7 +8,7 @@ namespace efcore_migrations.Data.Mappings
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
-            builder.ToTable("user");
+            builder.ToTable("users");
 
             builder.HasKey(x => x.Id);
 
